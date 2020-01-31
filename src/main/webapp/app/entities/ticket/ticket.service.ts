@@ -50,6 +50,13 @@ export class TicketService {
     return this.http.delete(`${this.resourceUrl}/${id}`, { observe: 'response' });
   }
 
+  queryMyTickets(): Observable<EntityArrayResponseType> {
+    const options = createRequestOption();
+    return this.http
+        .get<ITicket[]>(this.resourceUrl + '/self', { params: options, observe: 'response' })
+        .pipe(map((res: EntityArrayResponseType) => this.convertDateArrayFromServer(res)));
+  }
+
   protected convertDateFromClient(ticket: ITicket): ITicket {
     const copy: ITicket = Object.assign({}, ticket, {
       dueDate: ticket.dueDate && ticket.dueDate.isValid() ? ticket.dueDate.format(DATE_FORMAT) : undefined
