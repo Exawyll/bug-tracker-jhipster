@@ -4,7 +4,7 @@ import { Account } from 'app/core/user/account.model';
 import { Subscription, Observable } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
 import { TicketService } from 'app/entities/ticket/ticket.service';
-import { JhiAlertService, JhiEventManager, JhiParseLinks } from 'ng-jhipster';
+import { JhiEventManager, JhiParseLinks } from 'ng-jhipster';
 import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 
 @Component({
@@ -21,11 +21,11 @@ export class MyticketsComponent implements OnInit {
   reverse: any;
   links: any;
   totalItems: any;
+  ngbPaginationPage = 1;
 
   constructor(
     private accountService: AccountService,
     private ticketService: TicketService,
-    private jhiAlertService: JhiAlertService,
     private eventManager: JhiEventManager,
     private parseLinks: JhiParseLinks
   ) {}
@@ -33,7 +33,7 @@ export class MyticketsComponent implements OnInit {
   ngOnInit(): void {
     this.loadSelf();
     this.accountService.identity().subscribe(
-      (account: Account | null) => (this.account = account),
+      (account: Account) => (this.account = account),
       (res: HttpErrorResponse) => this.onError(res.message)
     );
 
@@ -42,7 +42,7 @@ export class MyticketsComponent implements OnInit {
 
   loadSelf(): void {
     this.ticketService.queryMyTickets().subscribe(
-      (res: HttpResponse<ITicket[] | null>) => this.paginateTickets(res.body, res.headers),
+      (res: HttpResponse<ITicket[]>) => this.paginateTickets(res.body, res.headers),
       (res: HttpErrorResponse) => this.onError(res.message)
     );
   }
@@ -61,8 +61,8 @@ export class MyticketsComponent implements OnInit {
     this.tickets = data;
   }
 
-  protected onError(errorMessage: string): void {
-    this.jhiAlertService.error(errorMessage, null, null);
+  protected onError(): void {
+    this.ngbPaginationPage = this.page;
   }
 
   registerChangeInTickets(): void {
