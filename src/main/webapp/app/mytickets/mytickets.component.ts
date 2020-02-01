@@ -21,7 +21,6 @@ export class MyticketsComponent implements OnInit {
   reverse: any;
   links: any;
   totalItems: any;
-  ngbPaginationPage = 1;
 
   constructor(
     private accountService: AccountService,
@@ -31,20 +30,13 @@ export class MyticketsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadSelf();
-    this.accountService.identity().subscribe(
-      (account: Account) => (this.account = account),
-      (res: HttpErrorResponse) => this.onError(res.message)
-    );
+    this.accountService.identity().subscribe(account => (this.account = account));
 
     this.registerChangeInTickets();
   }
 
   loadSelf(): void {
-    this.ticketService.queryMyTickets().subscribe(
-      (res: HttpResponse<ITicket[]>) => this.paginateTickets(res.body, res.headers),
-      (res: HttpErrorResponse) => this.onError(res.message)
-    );
+    this.ticketService.queryMyTickets().subscribe((res: HttpResponse<ITicket[] | null>) => this.paginateTickets(res.body, res.headers));
   }
 
   sort(): String[] {
@@ -59,10 +51,6 @@ export class MyticketsComponent implements OnInit {
     this.links = this.parseLinks.parse(headers.get('link')!);
     this.totalItems = parseInt(headers.get('X-Total-Count')!, 10);
     this.tickets = data;
-  }
-
-  protected onError(): void {
-    this.ngbPaginationPage = this.page;
   }
 
   registerChangeInTickets(): void {
