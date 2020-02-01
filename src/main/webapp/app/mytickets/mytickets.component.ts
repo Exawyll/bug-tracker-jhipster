@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ITicket } from 'app/shared/model/ticket.model';
 import { Account } from 'app/core/user/account.model';
-import { Subscription, Observable } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
 import { TicketService } from 'app/entities/ticket/ticket.service';
 import { JhiEventManager, JhiParseLinks } from 'ng-jhipster';
-import { HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpHeaders, HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'jhi-mytickets',
@@ -30,13 +30,17 @@ export class MyticketsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.accountService.identity().subscribe(account => (this.account = account));
+    this.accountService.identity().subscribe(account => {
+      this.account = account ? account : undefined;
+    });
 
     this.registerChangeInTickets();
   }
 
   loadSelf(): void {
-    this.ticketService.queryMyTickets().subscribe((res: HttpResponse<ITicket[] | null>) => this.paginateTickets(res.body, res.headers));
+    this.ticketService.queryMyTickets().subscribe((res: HttpResponse<ITicket[]>) => {
+      res.body ? this.paginateTickets(res.body, res.headers) : (this.tickets = []);
+    });
   }
 
   sort(): String[] {
