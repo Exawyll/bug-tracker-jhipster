@@ -30,7 +30,7 @@ export class MyticketsComponent implements OnInit {
     private parseLinks: JhiParseLinks
   ) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.loadSelf();
     this.accountService
       .identity()
@@ -39,20 +39,20 @@ export class MyticketsComponent implements OnInit {
         this.account = account;
       })
       .catch(err => {
-        console.log(err);
+        this.onError(err);
       });
 
     this.registerChangeInTickets();
   }
 
-  loadSelf() {
+  loadSelf(): void {
     this.ticketService.queryMyTickets().subscribe(
       (res: HttpResponse<ITicket[]>) => this.paginateTickets(res.body, res.headers),
       (res: HttpErrorResponse) => this.onError(res.message)
     );
   }
 
-  sort() {
+  sort(): String[] {
     const result = [this.predicate + ',' + (this.reverse ? 'asc' : 'desc')];
     if (this.predicate !== 'id') {
       result.push('id');
@@ -60,17 +60,17 @@ export class MyticketsComponent implements OnInit {
     return result;
   }
 
-  protected paginateTickets(data: ITicket[], headers: HttpHeaders) {
+  protected paginateTickets(data: ITicket[], headers: HttpHeaders): void {
     this.links = this.parseLinks.parse(headers.get('link'));
     this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
     this.tickets = data;
   }
 
-  protected onError(errorMessage: string) {
+  protected onError(errorMessage: string): void {
     this.jhiAlertService.error(errorMessage, null, null);
   }
 
-  registerChangeInTickets() {
+  registerChangeInTickets(): void {
     this.eventSubscriber = this.eventManager.subscribe('ticketListModification', response => this.loadSelf());
   }
 }
