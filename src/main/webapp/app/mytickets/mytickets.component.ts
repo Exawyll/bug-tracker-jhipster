@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITicket } from 'app/shared/model/ticket.model';
 import { Account } from 'app/core/user/account.model';
-import { Subscription } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 import { AccountService } from 'app/core/auth/account.service';
 import { TicketService } from 'app/entities/ticket/ticket.service';
 import { JhiAlertService, JhiEventManager, JhiParseLinks } from 'ng-jhipster';
@@ -32,22 +32,17 @@ export class MyticketsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadSelf();
-    this.accountService
-      .identity()
-      .toPromise()
-      .then((account: Account) => {
-        this.account = account;
-      })
-      .catch(err => {
-        this.onError(err);
-      });
+    this.accountService.identity().subscribe(
+      (account: Account | null) => (this.account = account),
+      (res: HttpErrorResponse) => this.onError(res.message)
+    );
 
     this.registerChangeInTickets();
   }
 
   loadSelf(): void {
     this.ticketService.queryMyTickets().subscribe(
-      (res: HttpResponse<ITicket[]>) => this.paginateTickets(res.body, res.headers),
+      (res: HttpResponse<ITicket[] | null>) => this.paginateTickets(res.body, res.headers),
       (res: HttpErrorResponse) => this.onError(res.message)
     );
   }
@@ -61,8 +56,8 @@ export class MyticketsComponent implements OnInit {
   }
 
   protected paginateTickets(data: ITicket[], headers: HttpHeaders): void {
-    this.links = this.parseLinks.parse(headers.get('link'));
-    this.totalItems = parseInt(headers.get('X-Total-Count'), 10);
+    this.links = this.parseLinks.parse(headers.get('link')!);
+    this.totalItems = parseInt(headers.get('X-Total-Count')!, 10);
     this.tickets = data;
   }
 
@@ -71,6 +66,6 @@ export class MyticketsComponent implements OnInit {
   }
 
   registerChangeInTickets(): void {
-    this.eventSubscriber = this.eventManager.subscribe('ticketListModification', response => this.loadSelf());
+    this.eventSubscriber = this.eventManager.subscribe('ticketListModification', () => this.loadSelf());
   }
 }
