@@ -26,7 +26,15 @@ import { MyticketsComponent } from './mytickets/mytickets.component';
     BugTrackerJHipsterEntityModule,
     BugTrackerJHipsterAppRoutingModule
   ],
-  declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent, MyticketsComponent],
+  declarations: [
+    MainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    FooterComponent,
+    MyticketsComponent
+  ],
   bootstrap: [MainComponent]
 })
 export class BugTrackerJHipsterAppModule {}
