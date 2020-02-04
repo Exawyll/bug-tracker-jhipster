@@ -77,3 +77,5 @@ This can occur if your cluster has low resource (e.g. Minikube). Increase the `i
 > my applications are starting very slow, despite I have a cluster with many resources
 
 The default setting are optimized for middle-scale clusters. You are free to increase the JAVA_OPTS environment variable, and resource requests and limits to improve the performance. Be careful!
+
+Add Jenkins CI job
