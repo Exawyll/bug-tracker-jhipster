@@ -38,6 +38,17 @@
     "enableTranslation": true,
     "nativeLanguage": "en",
     "languages": ["en"],
-    "blueprints": []
+    "blueprints": [],
+    "appsFolders": ["bug-tracker-jhipster"],
+    "directoryPath": "../",
+    "dockerRepositoryName": "gcr.io/kubernetes-267116",
+    "dockerPushCommand": "docker push",
+    "kubernetesNamespace": "production",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesUseDynamicStorage": true,
+    "kubernetesStorageClassName": "",
+    "ingressDomain": "",
+    "monitoring": "no",
+    "istio": false
   }
 }
