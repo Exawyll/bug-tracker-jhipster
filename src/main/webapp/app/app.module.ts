@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import './vendor';
-import { BugTrackerJHipsterSharedModule } from 'app/shared/shared.module';
-import { BugTrackerJHipsterCoreModule } from 'app/core/core.module';
-import { BugTrackerJHipsterAppRoutingModule } from './app-routing.module';
-import { BugTrackerJHipsterHomeModule } from './home/home.module';
-import { BugTrackerJHipsterEntityModule } from './entities/entity.module';
+import { BugtrackerjhipsterSharedModule } from 'app/shared/shared.module';
+import { BugtrackerjhipsterCoreModule } from 'app/core/core.module';
+import { BugtrackerjhipsterAppRoutingModule } from './app-routing.module';
+import { BugtrackerjhipsterHomeModule } from './home/home.module';
+import { BugtrackerjhipsterEntityModule } from './entities/entity.module';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
 import { MainComponent } from './layouts/main/main.component';
 import { NavbarComponent } from './layouts/navbar/navbar.component';
@@ -18,14 +18,14 @@ import { ErrorComponent } from './layouts/error/error.component';
 @NgModule({
   imports: [
     BrowserModule,
-    BugTrackerJHipsterSharedModule,
-    BugTrackerJHipsterCoreModule,
-    BugTrackerJHipsterHomeModule,
+    BugtrackerjhipsterSharedModule,
+    BugtrackerjhipsterCoreModule,
+    BugtrackerjhipsterHomeModule,
     // jhipster-needle-angular-add-module JHipster will add new module here
-    BugTrackerJHipsterEntityModule,
-    BugTrackerJHipsterAppRoutingModule
+    BugtrackerjhipsterEntityModule,
+    BugtrackerjhipsterAppRoutingModule
   ],
   declarations: [MainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
   bootstrap: [MainComponent]
 })
-export class BugTrackerJHipsterAppModule {}
+export class BugtrackerjhipsterAppModule {}

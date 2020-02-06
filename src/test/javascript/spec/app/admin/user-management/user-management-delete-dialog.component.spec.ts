@@ -3,7 +3,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { of } from 'rxjs';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { BugTrackerJHipsterTestModule } from '../../../test.module';
+import { BugtrackerjhipsterTestModule } from '../../../test.module';
 import { MockEventManager } from '../../../helpers/mock-event-manager.service';
 import { MockActiveModal } from '../../../helpers/mock-active-modal.service';
 import { UserManagementDeleteDialogComponent } from 'app/admin/user-management/user-management-delete-dialog.component';
@@ -19,7 +19,7 @@ describe('Component Tests', () => {
 
     beforeEach(async(() => {
       TestBed.configureTestingModule({
-        imports: [BugTrackerJHipsterTestModule],
+        imports: [BugtrackerjhipsterTestModule],
         declarations: [UserManagementDeleteDialogComponent]
       })
         .overrideTemplate(UserManagementDeleteDialogComponent, '')

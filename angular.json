@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bug-tracker-j-hipster": {
+    "bugtrackerjhipster": {
       "root": "",
       "sourceRoot": "src/main/webapp",
       "projectType": "application",
@@ -29,7 +29,7 @@
       "architect": {}
     }
   },
-  "defaultProject": "bug-tracker-j-hipster",
+  "defaultProject": "bugtrackerjhipster",
   "cli": {
     "packageManager": "npm"
   }

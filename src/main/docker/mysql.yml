@@ -3,7 +3,7 @@ services:
   bugtrackerjhipster-mysql:
     image: mysql:8.0.18
     # volumes:
-    #     - ~/volumes/jhipster/BugTrackerJHipster/mysql/:/var/lib/mysql/
+    #     - ~/volumes/jhipster/bugtrackerjhipster/mysql/:/var/lib/mysql/
     environment:
       - MYSQL_USER=root
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes

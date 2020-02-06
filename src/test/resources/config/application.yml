@@ -13,19 +13,12 @@
 # http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
 # ===================================================================
 
-eureka:
-  client:
-    enabled: false
-  instance:
-    appname: BugTrackerJHipster
-    instanceId: BugTrackerJHipster:${spring.application.instance-id:${random.value}}
-
 spring:
   application:
-    name: BugTrackerJHipster
+    name: bugtrackerjhipster
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:h2:mem:BugTrackerJHipster;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:bugtrackerjhipster;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     name:
     username:
     password:
@@ -62,13 +55,13 @@ spring:
       enabled: false
   task:
     execution:
-      thread-name-prefix: bug-tracker-j-hipster-task-
+      thread-name-prefix: bugtrackerjhipster-task-
       pool:
         core-size: 1
         max-size: 50
         queue-capacity: 10000
     scheduling:
-      thread-name-prefix: bug-tracker-j-hipster-scheduling-
+      thread-name-prefix: bugtrackerjhipster-scheduling-
       pool:
         size: 1
   thymeleaf:
@@ -86,7 +79,7 @@ server:
 
 jhipster:
   clientApp:
-    name: 'bugTrackerJHipsterApp'
+    name: 'bugtrackerjhipsterApp'
   logging:
     # To test json console appender
     use-json-format: true # By default, logs are in Json format
@@ -102,7 +95,7 @@ jhipster:
     authentication:
       jwt:
         # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-        base64-secret: YzQ0ZTk4MTExMDFiZWE1NWJmMDZmOGRjMjA5MTUzMGQwMGVlZTY3ZGVkMTYxNDU4ZThmZWFmZTNjMTE5MWQ1MTkyNWE0MGNkNGYwMzAyMDg4NGZmN2RmN2NhN2ZkNGUzODFlZmJhNzNjZGYwZmIyNjYzMGJiYzhiZWJlY2NhZjM=
+        base64-secret: MTRmNzY0Y2I4ZWE1NmJjYWEwYTUyYzkxYTQxZjJiMTRhNTUxMmMyZGZlOWU1NDU5YjI4MTBkY2JiY2NlYTNmNWZhYzhlMWY3YTZiN2UxYWRhZDUxNjMwNmMzNTUzMGNjZmE1ZGZmMWIyYjgxZDA0OTJkYmZiNmY5OTNjM2ZmOTc=
         # Token is valid 24 hours
         token-validity-in-seconds: 86400
   metrics:

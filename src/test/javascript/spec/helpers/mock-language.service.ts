@@ -9,6 +9,6 @@ export class MockLanguageService extends SpyObject {
   constructor() {
     super(JhiLanguageService);
 
-    this.getCurrentLanguageSpy = this.spy('getCurrentLanguage').andReturn('en');
+    this.getCurrentLanguageSpy = this.spy('getCurrentLanguage').andReturn('fr');
   }
 }

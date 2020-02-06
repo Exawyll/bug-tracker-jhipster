@@ -8,7 +8,7 @@ import { CookieModule } from 'ngx-cookie';
 import { TranslateModule, TranslateLoader, MissingTranslationHandler } from '@ngx-translate/core';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { NgJhipsterModule, translatePartialLoader, missingTranslationHandler, JhiConfigService, JhiLanguageService } from 'ng-jhipster';
-import locale from '@angular/common/locales/en';
+import locale from '@angular/common/locales/fr';
 
 import * as moment from 'moment';
 import { NgbDateAdapter, NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
@@ -31,7 +31,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
       alertAsToast: false,
       alertTimeout: 5000,
       i18nEnabled: true,
-      defaultI18nLang: 'en'
+      defaultI18nLang: 'fr'
     }),
     TranslateModule.forRoot({
       loader: {
@@ -50,7 +50,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
     Title,
     {
       provide: LOCALE_ID,
-      useValue: 'en'
+      useValue: 'fr'
     },
     { provide: NgbDateAdapter, useClass: NgbDateMomentAdapter },
     DatePipe,
@@ -76,7 +76,7 @@ import { fontAwesomeIcons } from './icons/font-awesome-icons';
     }
   ]
 })
-export class BugTrackerJHipsterCoreModule {
+export class BugtrackerjhipsterCoreModule {
   constructor(iconLibrary: FaIconLibrary, dpConfig: NgbDatepickerConfig, languageService: JhiLanguageService) {
     registerLocaleData(locale);
     iconLibrary.addIconPacks(fas);
