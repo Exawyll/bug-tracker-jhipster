@@ -1,0 +1,18 @@
+# ========================================================================
+# App Engine Configuration.
+# Full reference is available at:
+# https://cloud.google.com/appengine/docs/standard/java11/config/appref
+# ========================================================================
+
+runtime: java11
+instance_class: B8
+service: default
+handlers:
+- url: /(.*)
+  script: auto
+  secure: always
+manual_scaling:
+  instances: 2
+entrypoint: java -Dthin.root=. -jar bug-tracker-j-hipster-0.0.1-SNAPSHOT.jar
+beta_settings:
+    cloud_sql_instances: robotic-sector-267309:us-central1:monolith

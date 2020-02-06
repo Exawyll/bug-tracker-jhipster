@@ -6,8 +6,6 @@ import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 
 import { UserRouteAccessService } from 'app/core/auth/user-route-access-service';
 
-import { MyticketsComponent } from 'app/mytickets/mytickets.component';
-
 const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
 
 @NgModule({
@@ -25,10 +23,6 @@ const LAYOUT_ROUTES = [navbarRoute, ...errorRoute];
         {
           path: 'account',
           loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
-        },
-        {
-          path: 'jhi-mytickets',
-          component: MyticketsComponent
         },
         ...LAYOUT_ROUTES
       ],

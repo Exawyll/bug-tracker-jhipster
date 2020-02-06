@@ -49,6 +49,16 @@
     "kubernetesStorageClassName": "",
     "ingressDomain": "",
     "monitoring": "no",
-    "istio": false
+    "istio": false,
+    "gcpProjectId": "robotic-sector-267309",
+    "gcpCloudSqlInstanceName": "robotic-sector-267309:us-central1:monolith",
+    "gcpCloudSqlUserName": "root",
+    "gcpCloudSqlDatabaseName": "monolith",
+    "gaeServiceName": "default",
+    "gaeLocation": "us-central",
+    "gaeInstanceClass": "B8",
+    "gaeScalingType": "manual",
+    "gaeInstances": "2",
+    "gaeCloudSQLInstanceNeeded": "Y"
   }
 }
