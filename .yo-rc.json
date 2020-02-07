@@ -40,7 +40,7 @@
     "languages": ["fr", "en"],
     "blueprints": [],
     "gcpProjectId": "robotic-sector-267309",
-    "gcpCloudSqlInstanceName": "robotic-sector-267309:us-central1:monolith",
+    "gcpCloudSqlInstanceName": "robotic-sector-267309:us-central1:bugtrackerjhipster",
     "gcpCloudSqlUserName": "root",
     "gcpCloudSqlDatabaseName": "monolith",
     "gaeServiceName": "default",
@@ -48,6 +48,10 @@
     "gaeInstanceClass": "B8",
     "gaeScalingType": "manual",
     "gaeInstances": "2",
-    "gaeCloudSQLInstanceNeeded": "Y"
+    "gaeCloudSQLInstanceNeeded": "Y",
+    "appsFolders": ["bug-tracker-jhipster"],
+    "directoryPath": "../",
+    "monitoring": "no",
+    "consoleOptions": []
   }
 }

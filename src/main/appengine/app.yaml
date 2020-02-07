@@ -15,4 +15,4 @@ manual_scaling:
   instances: 2
 entrypoint: java -Dthin.root=. -jar bugtrackerjhipster-0.0.1-SNAPSHOT.jar
 beta_settings:
-    cloud_sql_instances: robotic-sector-267309:us-central1:monolith
+    cloud_sql_instances: robotic-sector-267309:us-central1:bugtrackerjhipster

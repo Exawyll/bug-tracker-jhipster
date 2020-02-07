@@ -14,10 +14,8 @@ server:
 spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: 'jdbc:mysql://google/monolith?cloudSqlInstance=robotic-sector-267309:us-central1:monolith&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false'
+    url: 'jdbc:mysql://google/monolith?cloudSqlInstance=robotic-sector-267309:us-central1:bugtrackerjhipster&socketFactory=com.google.cloud.sql.mysql.SocketFactory&useSSL=false'
     username: 'root'
     password: 'admin'
     hikari:
       maximumPoolSize: 8
-beta_settings:
-  cloud_sql_instances: robotic-sector-267309:us-central1:monolith
