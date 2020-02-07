@@ -1,3 +1,4 @@
+sudo: required
 os:
   - linux
 services:
@@ -63,7 +64,6 @@ deploy:
   skip_cleanup: true
   keyfile: client-secret.json
   project: robotic-sector-267309
-  default: true
-  on:
-    all_branches: true
+  verbosity: debug
+  on: master
 # [END travis_deploy]
