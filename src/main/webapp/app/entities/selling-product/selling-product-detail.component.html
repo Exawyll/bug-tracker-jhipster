@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="sellingProduct">
+            <h2><span jhiTranslate="bugtrackerjhipsterApp.sellingProduct.detail.title">Selling Product</span> {{sellingProduct.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.sellingProduct.v2ProductName">V 2 Product Name</span></dt>
+                <dd>
+                    <span>{{sellingProduct.v2ProductName}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.sellingProduct.v2ProductCategory">V 2 Product Category</span></dt>
+                <dd>
+                    <span>{{sellingProduct.v2ProductCategory}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.sellingProduct.unitsSold">Units Sold</span></dt>
+                <dd>
+                    <span>{{sellingProduct.unitsSold}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.sellingProduct.revenue">Revenue</span></dt>
+                <dd>
+                    <span>{{sellingProduct.revenue}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/selling-product', sellingProduct.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

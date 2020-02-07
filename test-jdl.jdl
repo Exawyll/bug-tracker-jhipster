@@ -1,0 +1,7 @@
+
+entity SellingProduct {
+    v2ProductName String
+	v2ProductCategory String
+	unitsSold Integer
+	revenue Float
+}

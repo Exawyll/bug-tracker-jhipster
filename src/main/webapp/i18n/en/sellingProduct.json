@@ -1,0 +1,25 @@
+{
+  "bugtrackerjhipsterApp": {
+    "sellingProduct": {
+      "home": {
+        "title": "Selling Products",
+        "createLabel": "Create a new Selling Product",
+        "createOrEditLabel": "Create or edit a Selling Product",
+        "notFound": "No Selling Products found"
+      },
+      "created": "A new Selling Product is created with identifier {{ param }}",
+      "updated": "A Selling Product is updated with identifier {{ param }}",
+      "deleted": "A Selling Product is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Selling Product {{ id }}?"
+      },
+      "detail": {
+        "title": "Selling Product"
+      },
+      "v2ProductName": "V 2 Product Name",
+      "v2ProductCategory": "V 2 Product Category",
+      "unitsSold": "Units Sold",
+      "revenue": "Revenue"
+    }
+  }
+}

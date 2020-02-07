@@ -1,0 +1,32 @@
+{
+    "name": "SellingProduct",
+    "fields": [
+        {
+            "fieldName": "v2ProductName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "v2ProductCategory",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "unitsSold",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "revenue",
+            "fieldType": "Float"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20200207211954",
+    "entityTableName": "selling_product",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
