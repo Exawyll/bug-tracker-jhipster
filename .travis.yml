@@ -60,7 +60,7 @@ notifications:
 # [START travis_deploy]
 deploy:
   provider: gae
+  skip_cleanup: true
   keyfile: client-secret.json
   project: robotic-sector-267309
-  skip_cleanup: true
 # [END travis_deploy]
