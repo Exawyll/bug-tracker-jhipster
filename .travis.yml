@@ -63,4 +63,7 @@ deploy:
   skip_cleanup: true
   keyfile: client-secret.json
   project: robotic-sector-267309
+  default: true
+  on:
+    all_branches: true
 # [END travis_deploy]
