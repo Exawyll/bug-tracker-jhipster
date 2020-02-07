@@ -57,11 +57,12 @@ notifications:
     on_start: false # default: false
 # [START travis_deploy]
 deploy:
-  provider: gae
-  config: src/main/appengine/app.yaml
-  skip_cleanup: true
-  keyfile: client-secret.json
-  project: robotic-sector-267309
-  verbosity: debug
-  on: master
+  - provider: script
+    script: deploy_production.sh
+    config: src/main/appengine/app.yaml
+    skip_cleanup: true
+    keyfile: client-secret.json
+    project: robotic-sector-267309
+    verbosity: debug
+    on: master
 # [END travis_deploy]
