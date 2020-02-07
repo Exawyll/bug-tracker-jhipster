@@ -62,4 +62,5 @@ deploy:
   provider: gae
   keyfile: client-secret.json
   project: robotic-sector-267309
+  skip_cleanup: true
 # [END travis_deploy]
