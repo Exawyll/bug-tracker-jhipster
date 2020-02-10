@@ -39,19 +39,20 @@
     "nativeLanguage": "fr",
     "languages": ["fr", "en"],
     "blueprints": [],
-    "gcpProjectId": "robotic-sector-267309",
-    "gcpCloudSqlInstanceName": "robotic-sector-267309:us-central1:bugtrackerjhipster",
+    "gcpProjectId": "halogen-rarity-267815",
+    "gcpCloudSqlInstanceName": "halogen-rarity-267815:us-central1:bugtrackerjhipster",
     "gcpCloudSqlUserName": "root",
-    "gcpCloudSqlDatabaseName": "monolith",
+    "gcpCloudSqlDatabaseName": "bugtrackerjhipster",
     "gaeServiceName": "default",
     "gaeLocation": "us-central",
-    "gaeInstanceClass": "B8",
-    "gaeScalingType": "manual",
-    "gaeInstances": "2",
+    "gaeInstanceClass": "F4",
+    "gaeScalingType": "automatic",
     "gaeCloudSQLInstanceNeeded": "Y",
     "appsFolders": ["bug-tracker-jhipster"],
     "directoryPath": "../",
     "monitoring": "no",
-    "consoleOptions": []
+    "consoleOptions": [],
+    "gaeMinInstances": "1",
+    "gaeMaxInstances": "0"
   }
 }
