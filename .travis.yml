@@ -11,6 +11,7 @@ cache:
     - node
     - node_modules
     - $HOME/.m2
+    - '$HOME/.cache'
 env:
   global:
     - NODE_VERSION=12.13.1
@@ -39,8 +40,8 @@ before_install:
   - node -v
   - npm -v
   -  # Decrypt the credentials we added to the repo using the key we added with the Travis command line tool
-  # - openssl aes-256-cbc -K $encrypted_1ae10b3d1a1f_key -iv $encrypted_1ae10b3d1a1f_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
-  # - tar -xzf credentials.tar.gz
+  - openssl aes-256-cbc -K $encrypted_1ae10b3d1a1f_key -iv $encrypted_1ae10b3d1a1f_iv -in credentials.tar.gz.enc -out credentials.tar.gz -d
+  - tar -xzf credentials.tar.gz
 install:
   - npm install
 script:
@@ -56,11 +57,12 @@ notifications:
     on_failure: always # options: [always|never|change] default: always
     on_start: false # default: false
 # [START travis_deploy]
-# deploy:
-# provider: gae
-# config: src/main/appengine/app.yaml
-# skip_cleanup: true
-# keyfile: client-secret.json
-# project: robotic-sector-267309
-# on: master
+deploy:
+  provider: script
+  script: './mvnw package appengine:deploy -DskipTests -Pgae,prod-gae'
+  # config: src/main/appengine/app.yaml
+  skip_cleanup: true
+  keyfile: client-secret.json
+  project: robotic-sector-267309
+  on: master
 # [END travis_deploy]
