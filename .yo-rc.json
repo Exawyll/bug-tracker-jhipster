@@ -43,15 +43,16 @@
     "gcpCloudSqlInstanceName": "robotic-sector-267309:us-central1:bugtrackerjhipster",
     "gcpCloudSqlUserName": "root",
     "gcpCloudSqlDatabaseName": "monolith",
-    "gaeServiceName": "default",
+    "gaeServiceName": "bugtrackerjhipster",
     "gaeLocation": "us-central",
-    "gaeInstanceClass": "B8",
-    "gaeScalingType": "manual",
-    "gaeInstances": "2",
+    "gaeInstanceClass": "F4",
+    "gaeScalingType": "automatic",
     "gaeCloudSQLInstanceNeeded": "Y",
     "appsFolders": ["bug-tracker-jhipster"],
     "directoryPath": "../",
     "monitoring": "no",
-    "consoleOptions": []
+    "consoleOptions": [],
+    "gaeMinInstances": "1",
+    "gaeMaxInstances": "0"
   }
 }

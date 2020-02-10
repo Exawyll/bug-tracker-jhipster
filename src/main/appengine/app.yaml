@@ -5,14 +5,13 @@
 # ========================================================================
 
 runtime: java11
-instance_class: B8
-service: default
+instance_class: F4
+service: bugtrackerjhipster
 handlers:
 - url: /(.*)
   script: auto
   secure: always
-manual_scaling:
-  instances: 2
+automatic_scaling:
+  min_instances: 1
+  max_instances: 0
 entrypoint: java -Dthin.root=. -jar bugtrackerjhipster-0.0.1-SNAPSHOT.jar
-beta_settings:
-    cloud_sql_instances: robotic-sector-267309:us-central1:bugtrackerjhipster
