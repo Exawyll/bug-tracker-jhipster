@@ -5,7 +5,7 @@
 # ========================================================================
 
 runtime: java11
-instance_class: B2
+instance_class: B4
 service: default
 handlers:
 - url: /(.*)
