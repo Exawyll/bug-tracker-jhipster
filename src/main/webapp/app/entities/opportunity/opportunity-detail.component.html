@@ -1,0 +1,35 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="opportunity">
+            <h2><span jhiTranslate="bugtrackerjhipsterApp.opportunity.detail.title">Opportunity</span> {{opportunity.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.opportunity.companyName">Company Name</span></dt>
+                <dd>
+                    <span>{{opportunity.companyName}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.opportunity.place">Place</span></dt>
+                <dd>
+                    <span>{{opportunity.place}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.opportunity.contactFrom">Contact From</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'bugtrackerjhipsterApp.NetworkEnum.' + opportunity.contactFrom}}">{{opportunity.contactFrom}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/opportunity', opportunity.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

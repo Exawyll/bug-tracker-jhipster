@@ -1,0 +1,10 @@
+{
+  "bugtrackerjhipsterApp": {
+    "InterviewTypeEnum": {
+      "null": "",
+      "REMOTE": "REMOTE",
+      "CALL": "CALL",
+      "PHYSICAL": "PHYSICAL"
+    }
+  }
+}

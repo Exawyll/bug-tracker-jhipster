@@ -1,0 +1,11 @@
+{
+  "bugtrackerjhipsterApp": {
+    "NetworkEnum": {
+      "null": "",
+      "LINKEDIN": "LINKEDIN",
+      "PERSONNAL": "PERSONNAL",
+      "APEC": "APEC",
+      "POLE_EMPLOI": "POLE_EMPLOI"
+    }
+  }
+}

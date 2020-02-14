@@ -1,0 +1,36 @@
+{
+    "name": "Opportunity",
+    "fields": [
+        {
+            "fieldName": "companyName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "place",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "contactFrom",
+            "fieldType": "NetworkEnum",
+            "fieldValues": "LINKEDIN,PERSONNAL,APEC,POLE_EMPLOI"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "interview",
+            "otherEntityRelationshipName": "opportunity",
+            "relationshipName": "interview"
+        }
+    ],
+    "changelogDate": "20200214170619",
+    "entityTableName": "opportunity",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

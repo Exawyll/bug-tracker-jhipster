@@ -8,6 +8,8 @@
       "entities": {
         "main": "Entités",
         "sellingProduct": "Selling Product",
+        "opportunity": "Opportunity",
+        "interview": "Interview",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {
