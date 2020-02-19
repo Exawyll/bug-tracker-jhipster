@@ -1,0 +1,49 @@
+{
+    "name": "Interview",
+    "fields": [
+        {
+            "fieldName": "occuredDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "jobTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "salary",
+            "fieldType": "Float"
+        },
+        {
+            "fieldName": "contact",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "InterviewTypeEnum",
+            "fieldValues": "REMOTE,CALL,PHYSICAL"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "opportunity",
+            "otherEntityRelationshipName": "interview",
+            "relationshipName": "opportunity",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200214170620",
+    "entityTableName": "interview",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

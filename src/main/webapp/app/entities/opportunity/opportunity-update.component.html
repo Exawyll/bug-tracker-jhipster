@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-opportunity-heading" jhiTranslate="bugtrackerjhipsterApp.opportunity.home.createOrEditLabel">Create or edit a Opportunity</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.opportunity.companyName" for="field_companyName">Company Name</label>
+                    <input type="text" class="form-control" name="companyName" id="field_companyName"
+                           formControlName="companyName"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.opportunity.place" for="field_place">Place</label>
+                    <input type="text" class="form-control" name="place" id="field_place"
+                           formControlName="place"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.opportunity.contactFrom" for="field_contactFrom">Contact From</label>
+                    <select class="form-control" name="contactFrom" formControlName="contactFrom" id="field_contactFrom">
+                        <option value="LINKEDIN">{{'bugtrackerjhipsterApp.NetworkEnum.LINKEDIN' | translate}}</option>
+                        <option value="PERSONNAL">{{'bugtrackerjhipsterApp.NetworkEnum.PERSONNAL' | translate}}</option>
+                        <option value="APEC">{{'bugtrackerjhipsterApp.NetworkEnum.APEC' | translate}}</option>
+                        <option value="POLE_EMPLOI">{{'bugtrackerjhipsterApp.NetworkEnum.POLE_EMPLOI' | translate}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="bugtrackerjhipsterApp.interview.home.title">Interviews</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-interview" [routerLink]="['/interview/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span  jhiTranslate="bugtrackerjhipsterApp.interview.home.createLabel">
+            Create a new Interview
+            </span>
+        </button>
+    </h2>
+    <jhi-alert-error></jhi-alert-error>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="alert alert-warning" *ngIf="interviews?.length === 0">
+        <span jhiTranslate="bugtrackerjhipsterApp.interview.home.notFound">No interviews found</span>
+    </div>
+    <div class="table-responsive" *ngIf="interviews?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+            <tr>
+            <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+            <th scope="col" ><span jhiTranslate="bugtrackerjhipsterApp.interview.occuredDate">Occured Date</span></th>
+            <th scope="col" ><span jhiTranslate="bugtrackerjhipsterApp.interview.jobTitle">Job Title</span></th>
+            <th scope="col" ><span jhiTranslate="bugtrackerjhipsterApp.interview.description">Description</span></th>
+            <th scope="col" ><span jhiTranslate="bugtrackerjhipsterApp.interview.salary">Salary</span></th>
+            <th scope="col" ><span jhiTranslate="bugtrackerjhipsterApp.interview.contact">Contact</span></th>
+            <th scope="col" ><span jhiTranslate="bugtrackerjhipsterApp.interview.type">Type</span></th>
+            <th scope="col" ><span jhiTranslate="bugtrackerjhipsterApp.interview.opportunity">Opportunity</span></th>
+            <th scope="col"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let interview of interviews ;trackBy: trackId">
+                <td><a [routerLink]="['/interview', interview.id, 'view' ]">{{interview.id}}</a></td>
+                <td>{{interview.occuredDate | date:'mediumDate'}}</td>
+                <td>{{interview.jobTitle}}</td>
+                <td>{{interview.description}}</td>
+                <td>{{interview.salary}}</td>
+                <td>{{interview.contact}}</td>
+                <td jhiTranslate="{{'bugtrackerjhipsterApp.InterviewTypeEnum.' + interview.type}}">{{interview.type}}</td>
+                <td>
+                    <div *ngIf="interview.opportunity">
+                        <a [routerLink]="['/opportunity', interview.opportunity?.id, 'view' ]" >{{interview.opportunity?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group">
+                        <button type="submit"
+                                [routerLink]="['/interview', interview.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/interview', interview.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit" (click)="delete(interview)"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+entity SellingProduct {
+    v2ProductName String
+	v2ProductCategory String
+	unitsSold Integer
+	revenue Float
+}
+
+entity Opportunity {
+	companyName String
+    place String
+    contactFrom NetworkEnum
+}
+
+entity Interview {
+	occuredDate LocalDate
+    jobTitle String
+    description String
+    salary Float
+    contact String
+    type InterviewTypeEnum
+}
+
+relationship OneToMany {
+	Opportunity{interview}
+    to
+    Interview{opportunity}
+}
+
+enum NetworkEnum {
+	LINKEDIN, PERSONNAL, APEC, POLE_EMPLOI
+}
+
+enum InterviewTypeEnum {
+	REMOTE, CALL, PHYSICAL
+}

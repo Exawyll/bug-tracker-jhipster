@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-interview-heading" jhiTranslate="bugtrackerjhipsterApp.interview.home.createOrEditLabel">Create or edit a Interview</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.interview.occuredDate" for="field_occuredDate">Occured Date</label>
+                    <div class="input-group">
+                        <input id="field_occuredDate" type="text" class="form-control" name="occuredDate" ngbDatepicker  #occuredDateDp="ngbDatepicker" formControlName="occuredDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="occuredDateDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.interview.jobTitle" for="field_jobTitle">Job Title</label>
+                    <input type="text" class="form-control" name="jobTitle" id="field_jobTitle"
+                           formControlName="jobTitle"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.interview.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                           formControlName="description"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.interview.salary" for="field_salary">Salary</label>
+                    <input type="number" class="form-control" name="salary" id="field_salary"
+                           formControlName="salary"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.interview.contact" for="field_contact">Contact</label>
+                    <input type="text" class="form-control" name="contact" id="field_contact"
+                           formControlName="contact"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.interview.type" for="field_type">Type</label>
+                    <select class="form-control" name="type" formControlName="type" id="field_type">
+                        <option value="REMOTE">{{'bugtrackerjhipsterApp.InterviewTypeEnum.REMOTE' | translate}}</option>
+                        <option value="CALL">{{'bugtrackerjhipsterApp.InterviewTypeEnum.CALL' | translate}}</option>
+                        <option value="PHYSICAL">{{'bugtrackerjhipsterApp.InterviewTypeEnum.PHYSICAL' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="bugtrackerjhipsterApp.interview.opportunity" for="field_opportunity">Opportunity</label>
+                    <select class="form-control" id="field_opportunity" name="opportunity" formControlName="opportunity">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="opportunityOption.id === editForm.get('opportunity')!.value?.id ? editForm.get('opportunity')!.value : opportunityOption" *ngFor="let opportunityOption of opportunities; trackBy: trackById">{{opportunityOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

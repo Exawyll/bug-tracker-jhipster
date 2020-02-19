@@ -1,0 +1,25 @@
+{
+  "bugtrackerjhipsterApp": {
+    "opportunity": {
+      "home": {
+        "title": "Opportunities",
+        "createLabel": "Créer un nouveau Opportunity",
+        "createOrEditLabel": "Créer ou éditer un Opportunity",
+        "notFound": "Aucun Opportunity trouvé"
+      },
+      "created": "Un nouveau Opportunity a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Opportunity avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Opportunity avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Opportunity {{ id }} ?"
+      },
+      "detail": {
+        "title": "Opportunity"
+      },
+      "companyName": "Company Name",
+      "place": "Place",
+      "contactFrom": "Contact From",
+      "interview": "Interview"
+    }
+  }
+}

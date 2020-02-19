@@ -1,0 +1,53 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="interview">
+            <h2><span jhiTranslate="bugtrackerjhipsterApp.interview.detail.title">Interview</span> {{interview.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.interview.occuredDate">Occured Date</span></dt>
+                <dd>
+                    <span>{{interview.occuredDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.interview.jobTitle">Job Title</span></dt>
+                <dd>
+                    <span>{{interview.jobTitle}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.interview.description">Description</span></dt>
+                <dd>
+                    <span>{{interview.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.interview.salary">Salary</span></dt>
+                <dd>
+                    <span>{{interview.salary}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.interview.contact">Contact</span></dt>
+                <dd>
+                    <span>{{interview.contact}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.interview.type">Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'bugtrackerjhipsterApp.InterviewTypeEnum.' + interview.type}}">{{interview.type}}</span>
+                </dd>
+                <dt><span jhiTranslate="bugtrackerjhipsterApp.interview.opportunity">Opportunity</span></dt>
+                <dd>
+                    <div *ngIf="interview.opportunity">
+                        <a [routerLink]="['/opportunity', interview.opportunity?.id, 'view']">{{interview.opportunity?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/interview', interview.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

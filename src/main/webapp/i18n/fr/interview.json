@@ -1,0 +1,28 @@
+{
+  "bugtrackerjhipsterApp": {
+    "interview": {
+      "home": {
+        "title": "Interviews",
+        "createLabel": "Créer un nouveau Interview",
+        "createOrEditLabel": "Créer ou éditer un Interview",
+        "notFound": "Aucun Interview trouvé"
+      },
+      "created": "Un nouveau Interview a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Interview avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Interview avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Interview {{ id }} ?"
+      },
+      "detail": {
+        "title": "Interview"
+      },
+      "occuredDate": "Occured Date",
+      "jobTitle": "Job Title",
+      "description": "Description",
+      "salary": "Salary",
+      "contact": "Contact",
+      "type": "Type",
+      "opportunity": "Opportunity"
+    }
+  }
+}
