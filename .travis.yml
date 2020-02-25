@@ -20,8 +20,8 @@ env:
   - JHI_DISABLE_WEBPACK_LOGS=true
   - NG_CLI_ANALYTICS="false"
   - MAVEN_USER_HOME=$HOME/.m2/repository/
+  - secure: 37hjFzECw3vH5JNjVksCTtO2FFoyJYOc7K2dfkPoFEGtW0xtG3Jd/QFzdB74gn3LAhULC6vntnVX0/b6Jfm27tB5Tqmxeea1BZ6BBhOw1wTyQ2CqiDwFQKU41aRN6iQ8Dd32argXB5rKyqR2ZFmzcAiBdWp8IlAwvM+p6Px3gdAtQxkmuXYW6I9bfZQ09lqnRuDUW9g9aJJOI3lLPTabtvsp43QBhXx0oko+8moXqcV+rC3Nw+C1YJJxuSFQxDCVhUpIk3ltEoxpV0/Ke0naFlXzQgpHIpwCHHTbODGS73Kn9NwNIUcLYzzcLjc0ITTk82XEXTpx9aW798GEA0UtfEhFAX81yRDpBoT/zLiweJQMINGYDglSMfnDwyxOpAJm9I7z0BFP2aiVP6kPbSL/RQI8H/ZkQW68SBZ80FB1fZ+bdGs3tkGLgAcAVswwdcraVqbPpDYr/PimmvoxB2TcXROmZFk/rfrmweNYyosxU17jMTDeIeLOjq3IrSw/ptS0pmUKdlTS5+I4VKALbCg9d6dKCjHP0WEqCinfTGzkdeUwKEK05XmpTR8sQQv0DtuRNwdkfZfbibLPxLxRAj3GCO9o5lhP/8+tc8rwMVUg+Rckz0uCDJLwIe4v7CwL9KDzL9DpwsYolVTRgNTW76QXVWdW6Hnjh3F9K7Eou9dc0Zs=
 before_install:
-- openssl aes-256-cbc -K $encrypted_7a1d24ae1412_key -iv $encrypted_7a1d24ae1412_iv
   -in client-secret.json.enc -out client-secret.json -d
 - |
   if [[ $JHI_JDK = '8' ]]; then
@@ -41,6 +41,7 @@ before_install:
 - npm install -g npm
 - node -v
 - npm -v
+- echo $super_secret_password | gpg --passphrase-fd 0 client-secret.json
 install:
 - npm install
 script:
