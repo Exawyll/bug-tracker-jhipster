@@ -20,36 +20,36 @@ env:
   - JHI_DISABLE_WEBPACK_LOGS=true
   - NG_CLI_ANALYTICS="false"
   - MAVEN_USER_HOME=$HOME/.m2/repository/
-  - secure: 37hjFzECw3vH5JNjVksCTtO2FFoyJYOc7K2dfkPoFEGtW0xtG3Jd/QFzdB74gn3LAhULC6vntnVX0/b6Jfm27tB5Tqmxeea1BZ6BBhOw1wTyQ2CqiDwFQKU41aRN6iQ8Dd32argXB5rKyqR2ZFmzcAiBdWp8IlAwvM+p6Px3gdAtQxkmuXYW6I9bfZQ09lqnRuDUW9g9aJJOI3lLPTabtvsp43QBhXx0oko+8moXqcV+rC3Nw+C1YJJxuSFQxDCVhUpIk3ltEoxpV0/Ke0naFlXzQgpHIpwCHHTbODGS73Kn9NwNIUcLYzzcLjc0ITTk82XEXTpx9aW798GEA0UtfEhFAX81yRDpBoT/zLiweJQMINGYDglSMfnDwyxOpAJm9I7z0BFP2aiVP6kPbSL/RQI8H/ZkQW68SBZ80FB1fZ+bdGs3tkGLgAcAVswwdcraVqbPpDYr/PimmvoxB2TcXROmZFk/rfrmweNYyosxU17jMTDeIeLOjq3IrSw/ptS0pmUKdlTS5+I4VKALbCg9d6dKCjHP0WEqCinfTGzkdeUwKEK05XmpTR8sQQv0DtuRNwdkfZfbibLPxLxRAj3GCO9o5lhP/8+tc8rwMVUg+Rckz0uCDJLwIe4v7CwL9KDzL9DpwsYolVTRgNTW76QXVWdW6Hnjh3F9K7Eou9dc0Zs=
+  - secure: Ig/rVJ3+iRwdD+kTcb3kMhu7UCAu56Kc64/dvxh+nmOxpoH6Ab07xQUj1cahO/raSlR7qr6xPcb7M/gNYOCj+5ItmKYyV0Mthnwtwj/LbiavHUGTgD2dKi2Mkuco960XFY7QXjwoDDCZvgwf8j0KSRvru2wxK4wI0tZ6ZOG0AciNyApEn7JSoEjrZVHy/IS5N+/+fifSWOLLfdY8r3gt1GpyFPKhHcsgl7jPt3d2tc+Y0UqepRlytmnGPrwPzedT/JC0VfxfyRO2B6/w1Fgfp99/N7BGDbOhyYHnWIWZ/4GAu22eABjuoLGWcCQfoSe5ZExAvLW8/FZFnWb828HfZHVcQ36SWDdcSZHCmRrElzvBt1BwtZV5hYdVkNZyLaFgY1+nqrTTGY4AtUmIoQ3Fo9sK5hGs5G4Njlgjh3j1Bb6ozSsBynTXpQaTldfLv1wppy1i3UXclU4FgHNdV01owxBaoYvL6Y8Ewam8rVqV/3tHw35XwmZS0kTyUDAONFsqM8AUiY2KIvM+We+qUhisahQLEPlEyPhBH7AuR298aahIs7R8w8t6J3aOHoqtAZ3TWY7ZYk96UbXHFJrcwniwyXS/A8ZtCb/FXRF8HF3iFQsEWR848im2fTYxX4N8dE79zc4QWotsg0e7PI3rmwLQcxCF3PDB6TPxWd5xzTy8gOc=
 before_install:
-  - |
-    if [[ $JHI_JDK = '8' ]]; then
-      echo '*** Using OpenJDK 8'
-    else
-      echo '*** Using OpenJDK 11 by default'
-      sudo add-apt-repository ppa:openjdk-r/ppa -y
-      sudo apt-get update -q
-      sudo apt-get install -y openjdk-11-jdk -y
-      sudo update-java-alternatives -s java-1.11.0-openjdk-amd64
-      java -version
-    fi
-  - java -version
-  - sudo /etc/init.d/mysql stop
-  - sudo /etc/init.d/postgresql stop
-  - nvm install $NODE_VERSION
-  - npm install -g npm
-  - node -v
-  - npm -v
-  - echo $super_secret_password | gpg --passphrase-fd 0 client-secret.json.gpg
+- |
+  if [[ $JHI_JDK = '8' ]]; then
+    echo '*** Using OpenJDK 8'
+  else
+    echo '*** Using OpenJDK 11 by default'
+    sudo add-apt-repository ppa:openjdk-r/ppa -y
+    sudo apt-get update -q
+    sudo apt-get install -y openjdk-11-jdk -y
+    sudo update-java-alternatives -s java-1.11.0-openjdk-amd64
+    java -version
+  fi
+- java -version
+- sudo /etc/init.d/mysql stop
+- sudo /etc/init.d/postgresql stop
+- nvm install $NODE_VERSION
+- npm install -g npm
+- node -v
+- npm -v
+- echo $super_secret_password | gpg --passphrase-fd 0 client-secret.json.gpg
 install:
-  - npm install
+- npm install
 script:
-  - chmod +x mvnw
-  - "./mvnw -ntp checkstyle:check"
-  - "./mvnw -ntp clean verify"
-  - "./mvnw -ntp com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run
-    test' -Dmaven.repo.local=$MAVEN_USER_HOME"
-  - "./mvnw -ntp verify -Pprod -DskipTests"
+- chmod +x mvnw
+- "./mvnw -ntp checkstyle:check"
+- "./mvnw -ntp clean verify"
+- "./mvnw -ntp com.github.eirslett:frontend-maven-plugin:npm -Dfrontend.npm.arguments='run
+  test' -Dmaven.repo.local=$MAVEN_USER_HOME"
+- "./mvnw -ntp verify -Pprod -DskipTests"
 notifications:
   webhooks:
     on_success: change
